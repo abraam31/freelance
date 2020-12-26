@@ -65,8 +65,7 @@ pipeline {
 				script{
 					//parsing the yaml file 
 					@Library('freelance')
-					def pipeline = new com.example.Pipeline()
-					//Pipeline(this, "config.yml").execute()
+					new Pipeline(this, "config.yml").execute()
 				}
 				
 		}
