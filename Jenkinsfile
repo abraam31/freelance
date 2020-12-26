@@ -1,7 +1,5 @@
 @Library('freelance') _
 
-def notificationOnStart
-
 pipeline {
    agent any
    stages {
@@ -10,6 +8,15 @@ pipeline {
 				yaml("config.yml")	
 		}				
 	}
+
+        stage('build') {
+			steps {
+				sh ''' ${env.buildCommand} '''
+				sh ''' ${env.deployCommand} '''
+
+		}				
+	}
+
 
         stage('vars') {
 			steps {
