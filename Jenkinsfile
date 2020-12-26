@@ -1,14 +1,13 @@
-def buildCommand
-def projectFolder
-
 pipeline {
    agent any
    stages {
         stage('Read YAML file') {
 			steps {
-				script{ datas = readYaml (file: 'config.yml') }
-				buildCommand = datas.build.buildCommand.toString()
-				projectFolder = datas.build.projectFolder.toString()
+				script{ 
+					datas = readYaml (file: 'config.yml') 
+					buildCommand = datas.build.buildCommand.toString()
+					projectFolder = datas.build.projectFolder.toString()
+					}
 				echo $projectFolder
 				echo $buildCommand
 
