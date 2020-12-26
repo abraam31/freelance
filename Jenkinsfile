@@ -1,5 +1,7 @@
 @Library('freelance') _
 
+def notificationOnStart
+
 pipeline {
    agent any
    stages {
