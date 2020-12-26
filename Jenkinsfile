@@ -64,7 +64,7 @@ pipeline {
 			steps {
 				script{
 					//parsing the yaml file 
-					new Pipeline(this, "config.yml").execute()
+					Pipeline(this, "config.yml").execute()
 				}
 				
 		}
