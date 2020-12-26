@@ -11,9 +11,18 @@ pipeline {
 
         stage('build') {
 			steps {
-				sh """ $env.buildCommand """
-				sh """ $env.deployCommand """
-
+				
+				sh """ 
+					$env.buildCommand
+					echo "##############"					
+					$env.deployCommand
+					echo "##########"
+					cd $env.buildProjectFolder
+					echo "##############"
+					$env.buildCommand
+					echo "##############"					
+					$env.deployCommand
+					"""
 		}				
 	}
 
