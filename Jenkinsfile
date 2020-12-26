@@ -4,8 +4,10 @@ pipeline {
         stage('Read YAML file') {
 			steps {
 				script{ datas = readYaml (file: 'config.yml') }
-				echo datas.build.buildCommand.toString()
-				echo datas.build.projectFolder.toString()
+				buildCommand = datas.build.buildCommand.toString()
+				projectFolder = datas.build.projectFolder.toString()
+				echo $projectFolder
+				echo buildCommand
 
 		}
 	}
