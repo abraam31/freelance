@@ -6,10 +6,9 @@ pipeline {
         stage('library groovy') {
 			steps {
 				yaml("config.yml")
-				}				
-		}
+		}				
 	}
-}	
+}
 
    post {
 		always {
