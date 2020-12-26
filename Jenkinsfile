@@ -4,18 +4,18 @@ pipeline {
         stage('Read YAML file') {
 			steps {
 				script{
-					\\ parsing the yaml file 
+					//parsing the yaml file 
 					datas = readYaml (file: 'config.yml') 
 					
-					\\ build vars 
+					// build vars 
 					buildCommand = datas.build.buildCommand.toString()
 					buildProjectFolder = datas.build.projectFolder.toString()
 					
-					\\ Database vars 
+					// Database vars 
 					databaseCommand = datas.database.databaseCommand.toString()
 					databaseProjectFolder = datas.database.databaseFolder.toString()
 
-					\\ deploy vars 
+					// deploy vars 
 					deployCommand = datas.deploy.deployCommand.toString()
 
 
