@@ -32,6 +32,9 @@ pipeline {
 					// deploy vars 
 					deployProjectFolder = datas.build.projectFolder.toString()
 					deployCommand = datas.deploy.deployCommand.toString()
+					
+					echo deployCommand
+					echo buildCommand
 
 
 					}
