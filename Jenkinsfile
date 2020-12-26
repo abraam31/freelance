@@ -1,3 +1,6 @@
+def buildCommand
+def projectFolder
+
 pipeline {
    agent any
    stages {
@@ -7,7 +10,7 @@ pipeline {
 				buildCommand = datas.build.buildCommand.toString()
 				projectFolder = datas.build.projectFolder.toString()
 				echo $projectFolder
-				echo buildCommand
+				echo $buildCommand
 
 		}
 	}
