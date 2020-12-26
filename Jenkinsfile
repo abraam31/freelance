@@ -8,8 +8,8 @@ pipeline {
 					buildCommand = datas.build.buildCommand.toString()
 					projectFolder = datas.build.projectFolder.toString()
 					}
-				echo ${projectFolder}
-				echo ${buildCommand}
+				echo "${projectFolder}"
+				echo "${buildCommand}"
 
 		}
 	}
