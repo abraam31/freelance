@@ -1,4 +1,7 @@
 @Library('freelance') _
+import com.example.*
+new Pipeline(this, "config.yml").execute()
+
 pipeline {
    agent any
    stages {
@@ -34,11 +37,10 @@ pipeline {
 					deployCommand = datas.deploy.deployCommand.toString()
 					
 					echo deployCommand
-					echo buildCommand
+					echo buildCommand 
 
 
-					}
-					
+				echo "#########################################################"
 				echo "notification recipient is : ${notificationRecipient}"
 				echo "Send on start: ${notificationOnStart}"
 				echo "Send on failure: ${notificationOnFailure}"
