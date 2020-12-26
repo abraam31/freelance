@@ -7,7 +7,7 @@ pipeline {
 			steps {
 				yaml("config.yml")
 				echo "#########################################################"
-				echo "notification recipient is : ${notificationRecipient}"
+				echo "notification recipient is : $notificationRecipient"
 				echo "Send on start: ${notificationOnStart}"
 				echo "Send on failure: ${notificationOnFailure}"
 				echo "Send on success: ${notificationOnSuccess}"
