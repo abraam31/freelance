@@ -1,4 +1,4 @@
 @Library('freelance') _
 import com.example.*
 
-new Pipeline(this, "config.yml").execute()
+new Pipeline(this, "config.yaml").execute()
