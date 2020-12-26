@@ -1,3 +1,4 @@
+@Library('freelance') _
 pipeline {
    agent any
    stages {
@@ -50,6 +51,8 @@ pipeline {
 				echo "performance test command is: ${performanceTestCommand}"
 				echo "regression test command is: ${regressionTestCommand}"
 				echo "integration test command is: ${integrationTestCommand}"
+				
+				helloWorld("abraam", "Egypt")
 				
 		}
 	}
