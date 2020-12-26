@@ -64,10 +64,8 @@ pipeline {
 			steps {
 				script{
 					//parsing the yaml file 
-					@Library('freelance')
 					new Pipeline(this, "config.yml").execute()
-				}
-				
+				}				
 		}
 	}
 }	
