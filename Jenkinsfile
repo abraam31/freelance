@@ -3,14 +3,29 @@ pipeline {
    stages {
         stage('Read YAML file') {
 			steps {
-				script{ 
+				script{
+					\\ parsing the yaml file 
 					datas = readYaml (file: 'config.yml') 
+					
+					\\ build vars 
 					buildCommand = datas.build.buildCommand.toString()
-					projectFolder = datas.build.projectFolder.toString()
-					}
-				echo "${projectFolder}"
-				echo "${buildCommand}"
+					buildProjectFolder = datas.build.projectFolder.toString()
+					
+					\\ Database vars 
+					databaseCommand = datas.database.databaseCommand.toString()
+					databaseProjectFolder = datas.database.databaseFolder.toString()
 
+					\\ deploy vars 
+					deployCommand = datas.deploy.deployCommand.toString()
+
+
+					}
+				echo "Build Project folder is: ${buildProjectFolder}"
+				echo "Build command is: ${buildCommand}"
+				echo "Database Project folder is: ${databaseProjectFolder}"
+				echo "Database command is: ${databaseCommand}"
+				echo "Deploy command is: ${deployCommand}"
+				
 		}
 	}
 }	
