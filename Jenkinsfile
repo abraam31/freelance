@@ -7,7 +7,12 @@ pipeline {
    stages {
         stage('library groovy') {
 			steps {
-				yaml("config.yml")
+				yaml("config.yml")	
+		}				
+	}
+}
+        stage('vars') {
+			steps {
 				echo "#########################################################"
 				echo "notification recipient is : ${env.notificationRecipient}"
 				echo "Send on start: ${env.notificationOnStart}"
@@ -23,10 +28,10 @@ pipeline {
 				echo "Test Project folder is: ${env.testFolder}"
 				echo "performance test command is: ${env.performanceTestCommand}"
 				echo "regression test command is: ${env.regressionTestCommand}"
-				echo "integration test command is: ${env.integrationTestCommand}"		}				
+				echo "integration test command is: ${env.integrationTestCommand}"		
+		}				
 	}
 }
-
    post {
 		always {
 			cleanWs ()
