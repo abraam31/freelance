@@ -38,8 +38,7 @@ pipeline {
 					
 					echo deployCommand
 					echo buildCommand 
-
-
+				}
 				echo "#########################################################"
 				echo "notification recipient is : ${notificationRecipient}"
 				echo "Send on start: ${notificationOnStart}"
