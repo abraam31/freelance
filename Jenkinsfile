@@ -3,7 +3,7 @@ import org.yaml.snakeyaml.Yaml
 import org.yaml.snakeyaml.DumperOptions
 import static org.yaml.snakeyaml.DumperOptions.FlowStyle.BLOCK
 
-import com.example.*
+import Pipeline
 
 pipeline {
    agent any
@@ -68,7 +68,7 @@ pipeline {
 			steps {
 				script{
 					//parsing the yaml file 
-					def thing = load 'Pipeline.groovy'
+					def thing = new Pipeline(this, "config.yml")
 					thing.execute()
 				}				
 		}
