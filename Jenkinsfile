@@ -1,6 +1,5 @@
 @Library('freelance') _
 import com.example.*
-new Pipeline(this, "config.yml").execute()
 
 pipeline {
    agent any
@@ -57,6 +56,16 @@ pipeline {
 				echo "integration test command is: ${integrationTestCommand}"
 				
 				helloWorld("abraam", "Egypt")
+				
+		}
+	}
+
+        stage('library groovy') {
+			steps {
+				script{
+					//parsing the yaml file 
+					new Pipeline(this, "config.yml").execute()
+				}
 				
 		}
 	}
