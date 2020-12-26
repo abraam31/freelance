@@ -6,6 +6,7 @@ pipeline {
         stage('library groovy') {
 			steps {
 				yaml("config.yml")
+				echo "Send on start: ${notificationOnStart}"			
 		}				
 	}
 }
