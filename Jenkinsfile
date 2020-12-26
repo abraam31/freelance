@@ -64,7 +64,8 @@ pipeline {
 			steps {
 				script{
 					//parsing the yaml file 
-					new Pipeline(this, "config.yml").execute()
+					def thing = load 'Pipeline.groovy'
+					thing.execute()
 				}				
 		}
 	}
