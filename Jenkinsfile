@@ -1,5 +1,5 @@
-@Library('freelance') _
-import com.example.*
+// @Library('freelance') _
+// import com.example.*
 
 pipeline {
    agent any
