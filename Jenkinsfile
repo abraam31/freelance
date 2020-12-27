@@ -56,7 +56,6 @@ pipeline {
 							// Changing directory to project folder 
 							ls
 							pwd 
-							sleep 20s
 							cd $env.databaseProjectFolder
 							pwd
 							// executing the maven project command
@@ -84,7 +83,6 @@ pipeline {
 							// Changing directory to project folder 
 							ls 
 							pwd
-							sleep 20s
 							cd $env.buildProjectFolder
 							// executing the maven project command
 							$env.listCommand
