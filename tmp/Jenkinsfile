@@ -1,6 +1,5 @@
 @Library('freelance') _
 import com.example.*
 
-Pipeline hamada = new Pipeline()
-hamada.configurationFile="config.yaml"
+Pipeline hamada = new Pipeline(this, "config.yaml")
 hamada.execute()
