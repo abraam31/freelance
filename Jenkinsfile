@@ -53,13 +53,7 @@ pipeline {
 				stage('Performance test'){
 					steps {
 						sh """
-							// Changing directory to project folder 
-							#!/bin/bash
-							ls
-							pwd 
 							cd $env.databaseProjectFolder
-							pwd
-							// executing the maven project command
 							$env.listCommand
 						"""
 					}
@@ -68,11 +62,7 @@ pipeline {
 				stage('Regression test'){
 					steps {
 						sh """
-							ls 
-							pwd 
-							// Changing directory to project folder 
 							cd $env.testFolder
-							// executing the maven project command
 							$env.listCommand
 						"""
 					}
@@ -81,11 +71,7 @@ pipeline {
 				stage('Integration test'){
 					steps {
 						sh """
-							// Changing directory to project folder 
-							ls 
-							pwd
 							cd $env.buildProjectFolder
-							// executing the maven project command
 							$env.listCommand
 						"""
 					}
