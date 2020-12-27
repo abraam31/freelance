@@ -7,9 +7,9 @@ pipeline {
         stage('library groovy') {
 			steps {
 				script {
-					Pipeline hamada = new Pipeline(this, "config.yaml")
+					def hamada = new Pipeline(this, "config.yaml")
 					println(hamada.configurationFile)
-					hamada.execute()				
+					println(hamada.execute())
 				}
 			}
 		}				
