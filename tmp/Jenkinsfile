@@ -9,7 +9,7 @@ pipeline {
 				script {
 					def hamada = new Pipeline(this, "config.yaml")
 					println(hamada.configurationFile)
-					hamada.execute()
+					hamada.execute
 				}
 			}
 		}				
