@@ -1,4 +1,6 @@
 @Library('freelance') _
 import com.example.*
 
-new Pipeline(this, "config.yaml").execute()
+Pipeline new = new Pipeline()
+new.configurationFile="config.yaml"
+new.execute()
