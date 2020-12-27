@@ -54,6 +54,7 @@ pipeline {
 					steps {
 						sh """
 							// Changing directory to project folder 
+							#!/bin/bash
 							ls
 							pwd 
 							cd $env.databaseProjectFolder
