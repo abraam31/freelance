@@ -82,6 +82,7 @@ pipeline {
 							// executing the maven project command
 							$env.listCommand
 						"""
+					}
 				}
 			}
 		}
