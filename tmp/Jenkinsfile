@@ -2,4 +2,5 @@
 import com.example.*
 
 Pipeline hamada = new Pipeline(this, "config.yaml")
+println(hamada.configurationFile)
 hamada.execute()
