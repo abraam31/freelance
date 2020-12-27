@@ -9,7 +9,7 @@ pipeline {
 		}				
 	}
 	
-        stage('vars') {
+        stage('echoing vars') {
 			steps {
 				echo "#########################################################"
 				echo "notification recipient is : ${env.notificationRecipient}"
@@ -48,23 +48,45 @@ pipeline {
 		}				
 	}
 
-        stage('trying commands 2') {
-			steps {
+        stage('test') {
+			parallel {
+				stage('Performance test'){
+					steps {
+						sh """
+							// Changing directory to project folder 
+							sleep 20s
+							cd $env.databaseProjectFolder
+							// executing the maven project command
+							$env.listCommand
+						"""
+					}
+				}
 				
-				sh """ 
-					$env.pwdCommand
-					echo "##############"					
-					$env.listCommand
-					echo "##########"
-					cd $env.databaseProjectFolder
-					echo "##############"
-					$env.pwdCommand
-					echo "##############"					
-					$env.listCommand
-					"""
-		}				
+				stage('Regression test'){
+					steps {
+						sh """
+							// Changing directory to project folder 
+							cd $env.testFolder
+							// executing the maven project command
+							$env.listCommand
+						"""
+					}
+				}
+				
+				stage('Integration test'){
+					steps {
+						sh """
+							// Changing directory to project folder 
+							sleep 20s
+							cd $env.buildProjectFolder
+							// executing the maven project command
+							$env.listCommand
+						"""
+				}
+			}
+		}
 	}
-}
+
 /*
         stage('build') {
 			steps {
@@ -76,6 +98,66 @@ pipeline {
 				"""
 		}				
 	}
+
+        stage('database') {
+			steps {
+				sh """
+					// Changing directory to database folder 
+					cd $env.databaseProjectFolder
+					// executing the maven database command
+					$env.databaseCommand
+				"""
+		}				
+	}
+
+        stage('deploy') {
+			steps {
+				sh """
+					// Changing directory to deploy folder 
+					cd $env.buildProjectFolder
+					// executing the maven deploy command
+					$env.deployCommand
+				"""
+		}				
+	}
+
+        stage('test') {
+			parallel {
+				stage('Performance test'){
+					steps {
+						sh """
+							// Changing directory to project folder 
+							cd $env.testFolder
+							// executing the maven project command
+							$env.performanceTestCommand
+						"""
+					}
+				}
+				
+				stage('Regression test'){
+					steps {
+						sh """
+							// Changing directory to project folder 
+							cd $env.testFolder
+							// executing the maven project command
+							$env.regressionTestCommand
+						"""
+					}
+				}
+				
+				stage('Integration test'){
+					steps {
+						sh """
+							// Changing directory to project folder 
+							cd $env.testFolder
+							// executing the maven project command
+							$env.integrationTestCommand
+						"""
+				}
+			}
+		}
+	}
+
 */
    post {
 		always {
