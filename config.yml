@@ -7,8 +7,8 @@ notifications:
 #Build configuration
 build:
   projectFolder: 'project'
-  buildCommand: "pwd"
-  #buildCommand: "mvn clean test"
+  pwdCommand: "pwd"
+  buildCommand: "mvn clean test"
 
 #Database configuration
 database:
@@ -16,8 +16,8 @@ database:
   databaseCommand: "mvn clean test -Dscope=FlywayMigration"
 #Deploy configuration
 deploy:
-  deployCommand: "ls"
-  #deployCommand: "mvn clean install"
+  listCommand: "ls"
+  deployCommand: "mvn clean install"
 
 #Test configuration (should be run in parallel)
 test:

@@ -9,24 +9,6 @@ pipeline {
 		}				
 	}
 
-        stage('build') {
-			steps {
-				
-				sh """ 
-					$env.buildCommand
-					echo "##############"					
-					$env.deployCommand
-					echo "##########"
-					cd $env.buildProjectFolder
-					echo "##############"
-					$env.buildCommand
-					echo "##############"					
-					$env.deployCommand
-					"""
-		}				
-	}
-
-
         stage('vars') {
 			steps {
 				echo "#########################################################"
@@ -48,6 +30,53 @@ pipeline {
 		}				
 	}
 }
+
+        stage('trying commands') {
+			steps {
+				
+				sh """ 
+					$env.pwdCommand
+					echo "##############"					
+					$env.listCommand
+					echo "##########"
+					cd $env.buildProjectFolder
+					echo "##############"
+					$env.pwdCommand
+					echo "##############"					
+					$env.listCommand
+					"""
+		}				
+	}
+
+        stage('trying commands 2') {
+			steps {
+				
+				sh """ 
+					$env.pwdCommand
+					echo "##############"					
+					$env.listCommand
+					echo "##########"
+					cd $env.databaseProjectFolder
+					echo "##############"
+					$env.pwdCommand
+					echo "##############"					
+					$env.listCommand
+					"""
+		}				
+	}
+
+/*
+        stage('build') {
+			steps {
+				sh """
+					// Changing directory to project folder 
+					cd $env.buildProjectFolder
+					// executing the maven project command
+					$env.buildCommand
+				"""
+		}				
+	}
+*/
    post {
 		always {
 			cleanWs ()
