@@ -8,7 +8,7 @@ pipeline {
 				yaml("config.yml")	
 		}				
 	}
-
+	
         stage('vars') {
 			steps {
 				echo "#########################################################"
@@ -29,7 +29,7 @@ pipeline {
 				echo "integration test command is: ${env.integrationTestCommand}"		
 		}				
 	}
-}
+
 
         stage('trying commands') {
 			steps {
@@ -64,7 +64,7 @@ pipeline {
 					"""
 		}				
 	}
-
+}
 /*
         stage('build') {
 			steps {
